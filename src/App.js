@@ -35,6 +35,7 @@ export default function App() {
         </Container>
       </Navbar>
       <Container>
+        {/* fix code here */}
         {false ? (
           <Row
             className='d-flex justify-content-center'
