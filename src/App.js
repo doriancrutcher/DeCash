@@ -30,7 +30,7 @@ export default function App() {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'></Nav>
             <Nav.Link href='/transactions'>Transactions</Nav.Link>
-            <Nav.Link>{/* add code here for login */}</Nav.Link>
+            <Nav.Link>{/* add code here for login */}Login</Nav.Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>
