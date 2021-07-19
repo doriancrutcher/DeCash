@@ -1,0 +1,12 @@
+html {
+  background: rgb(133, 175, 255);
+  background-color: linear-gradient(
+    0deg,
+    rgba(133, 175, 255, 1) 0%,
+    rgba(173, 202, 255, 1) 57%,
+    rgba(255, 255, 255, 1) 91%
+  );
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
