@@ -30,13 +30,20 @@ export default function App() {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'></Nav>
             <Nav.Link href='/transactions'>Transactions</Nav.Link>
-            <Nav.Link>{/* add code here for login */}Login</Nav.Link>
+            <Nav.Link
+              onClick={window.walletConnection.isSignedIn() ? logout : login}
+            >
+              {/* add code here for login */}
+              {window.walletConnection.isSignedIn()
+                ? window.accountId
+                : "Login"}
+            </Nav.Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Container>
         {/* fix code here */}
-        {false ? (
+        {window.walletConnection.isSignedIn() ? (
           <Row
             className='d-flex justify-content-center'
             style={{ marginTop: "10px" }}

@@ -12,7 +12,34 @@ const MoneyMemo = (props) => {
   const [buttonState, changeButtonState] = useState(false);
 
   const submitButton = async () => {
-    console.log("give me code");
+    changeButtonState(true);
+
+    // checking text was written and not just whitespaces
+    let isThereText = memoField.current.value.match("[A-Za-z0-9]");
+
+    if (isThereText === null) {
+      console.log(`I think you're missing the point of the memo....`);
+    } else {
+      console.log("you wrote something cool...");
+
+      // Write Code to Save Memo to BlockChain
+      await window.contract.addMemo({
+        receiver: recipientField.current.value,
+        memo: memoField.current.value,
+        price: nearField.current.value,
+      });
+
+      // send near tokens using near-api-js
+      // await window.account.sendMoney(recipientField.current.value,window.utils.format.parseNearAmount(nearField.current.value))
+
+      // Write Code to Send NEAR To Recipient
+      await window.contract.transferNearTokens({
+        account: recipientField.current.value,
+        amount: window.utils.format.parseNearAmount(nearField.current.value),
+      });
+      alert("Money Sent!");
+    }
+    changeButtonState(false);
   };
 
   return (
